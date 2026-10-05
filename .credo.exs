@@ -1,0 +1,19 @@
+%{
+  configs: [
+    %{
+      name: "default",
+      strict: true,
+      files: %{
+        included: ["lib/", "test/"],
+        excluded: [~r"_build/", ~r"deps/"]
+      },
+      checks: [
+        enabled: [
+          {Credo.Check.Design.AliasUsage, false},
+          {Credo.Check.Readability.Specs, []},
+          {Credo.Check.Warning.Dbg, []}
+        ]
+      ]
+    }
+  ]
+}
